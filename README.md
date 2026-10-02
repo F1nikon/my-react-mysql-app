@@ -1,51 +1,21 @@
-# my-react-mysql-app
-# My React + MySQL App
+# SportShare — веб-сервис шеринга и аренды спортивного инвентаря
 
 ## Концепция
-Веб-приложение на React, которое взаимодействует с REST API на Node.js/Express, а данные хранятся в MySQL. MySQL Workbench используется для проектирования схемы и администрирования БД.
+SportShare — это платформа, где владельцы спортивного инвентаря (велосипедов, лыж, сноубордов, палаток, ракеток и т.д.) могут сдавать его в аренду, а другие пользователи — находить и бронировать нужный инвентарь на нужные даты. Сервис работает по модели peer-to-peer (C2C), как Airbnb, но только для спорта.
+
+## Функциональность
+- Регистрация и авторизация пользователей (JWT).
+- Каталог инвентаря с фильтрами по категории, городу, датам, цене.
+- Публикация собственного инвентаря с фотографиями.
+- Бронирование на выбранные даты с проверкой пересечений.
+- Отзывы и рейтинги пользователей и инвентаря.
+- Личный кабинет: мои вещи, мои бронирования, история.
 
 ## Технологический стек
 - **Фронтенд**: React 18, Vite, React Router, Axios
-- **Бэкенд**: Node.js 20, Express 4
+- **Бэкенд**: Node.js 20, Express 4, JWT, bcrypt
 - **СУБД**: MySQL 8
 - **Инструмент для БД**: MySQL Workbench
 - **Развёртывание**: Docker, Docker Compose (опционально)
 
 ## Структура папок
-my-react-mysql-app/
-├── client/ # React-приложение
-│ ├── public/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── api/
-│ │ └── App.jsx
-│ ├── package.json
-│ └── .env.example
-├── server/ # Node.js/Express API
-│ ├── src/
-│ │ ├── routes/
-│ │ ├── controllers/
-│ │ ├── models/
-│ │ └── app.js
-│ ├── package.json
-│ └── .env.example
-├── database/ # SQL-скрипты для MySQL
-│ ├── schema.sql # CREATE TABLE ...
-│ ├── seed.sql # INSERT ...
-│ └── er_diagram.png # ER-диаграмма из MySQL Workbench
-├── .gitignore
-├── .env.example
-└── README.md
-
-
-## Инструкция по развёртыванию
-1. Клонировать репозиторий: `git clone <URL>`
-2. Установить зависимости:
-   - `cd client && npm install`
-   - `cd ../server && npm install`
-3. Создать базу данных в MySQL Workbench и выполнить `database/schema.sql`, затем `database/seed.sql`.
-4. Создать `.env` в `server/` на основе `server/.env.example`.
-5. Запустить сервер: `cd server && npm run dev`
-6. Запустить клиент: `cd client && npm run dev`
-7. Открыть `http://localhost:5173`
